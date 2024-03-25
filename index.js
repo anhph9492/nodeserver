@@ -28,10 +28,10 @@ client.on('error', err => console.log('Redis Client Error', err));
 
 client.connect()
 .then(res => {
-  console.log('redis connection successfully - ', res)
+  console.log('redis connection successfully - ')
 })
 .catch(err => {
-  console.log('redis connection falure - ', err)
+  console.log('redis connection falure - ')
 });
 
 
