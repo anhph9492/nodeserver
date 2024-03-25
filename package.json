@@ -5,9 +5,12 @@
     "license": "MIT",
     "scripts": {},
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.19.1",
+        "express-graphql": "^0.12.0",
         "graphql": "^16.8.1",
         "mongodb": "^6.5.0",
+        "mongoose": "^8.2.3",
         "redis": "^4.6.13",
         "vercel": "^33.6.1"
     }
