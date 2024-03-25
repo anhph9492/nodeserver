@@ -1,17 +1,18 @@
 // index.js
-const express = require('express')
-const app = express()
-const PORT = 4000
+const express = require("express");
+const app = express();
+const PORT = 4000;
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://anhph9492mongodb:forever9492@cluster0.xvgzewq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const { MongoClient, ServerApiVersion } = require("mongodb");
+const uri =
+  "mongodb+srv://anhph9492mongodbtest:forever9492@cluster0.xvgzewq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  }
+  },
 });
 async function run() {
   try {
@@ -19,7 +20,9 @@ async function run() {
     await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    console.log(
+      "Pinged your deployment. You successfully connected to MongoDB!",
+    );
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
@@ -44,19 +47,18 @@ run().catch(console.dir);
 //   console.log('redis connection falure - ')
 // });
 
-const mw = require('./middleware.js')
-app.use(mw({ option1: '1', option2: '2' }))
+const mw = require("./middleware.js");
+app.use(mw({ option1: "1", option2: "2" }));
 
-const bookRouter = require('./routers/book.js')
-app.use('/books', bookRouter)
+const bookRouter = require("./routers/book.js");
+app.use("/books", bookRouter);
 
-app.get('/', (req, res) => {
-  res.status(200).json('Welcome, your app is working well');
-})
-
+app.get("/", (req, res) => {
+  res.status(200).json("Welcome, your app is working well");
+});
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
 // Export the Express API
-module.exports = app
+module.exports = app;
