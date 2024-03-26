@@ -10,10 +10,10 @@ app.use(cors());
 // Connect to MongoDB
 mongoose.connect(
   "mongodb+srv://anhph9492mongodbtest:forever9492@cluster0.xvgzewq.mongodb.net/test",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
+  // {
+  //   useNewUrlParser: true,
+  //   useUnifiedTopology: true,
+  // },
 );
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
@@ -21,7 +21,7 @@ mongoose.connection.once("open", () => {
 
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./src/graphql/schema.js");
-const resolvers = require("./src/graphql/Resolvers.js");
+const resolvers = require("./src/graphql/resolvers.js");
 app.use(
   "/graphql",
   graphqlHTTP({
